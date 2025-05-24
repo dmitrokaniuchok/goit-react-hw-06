@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contactsSlice";
 import { selectContacts } from "../../redux/contactsSlice";
+import { toast } from "react-hot-toast";
 
 const validationSchema = Yup.object().shape({
   name: Yup.string()
@@ -29,7 +30,7 @@ export default function ContactForm() {
     );
 
     if (isDuplicate) {
-      alert(`${values.name} is already in contacts.`);
+      toast.error(`${values.name} is already in contacts.`);
       actions.resetForm();
       return;
     }
@@ -41,6 +42,7 @@ export default function ContactForm() {
     };
 
     dispatch(addContact(newContact));
+    toast.success(`${values.name} added to contacts!`);
     actions.resetForm();
   };
 

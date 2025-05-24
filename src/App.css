@@ -1,5 +1,4 @@
 #root {
-  width: 1280px;
   margin: 0 auto;
 }
 
@@ -40,13 +39,12 @@
 }
 
 ul {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   padding: 0;
   list-style: none;
-  justify-items: center;
+  justify-content: center;
 }
 
 .form-container {
